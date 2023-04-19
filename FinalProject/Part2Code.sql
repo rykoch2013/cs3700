@@ -271,13 +271,15 @@ Where MatchingCorp.matchCorpName=Matches.matchCorpName;
 
 --DONE
 --Find the total amount in pledges due to the event of Holiday Dinner Dance
-
 SELECT SUM(pledgeAmount) - SUM(pledgeAmountPaid)
 AS amountDue
 FROM Pledge
 WHERE eventName = 'Holiday Dinner Dance';
 
+--DONE?
 --Find the total amount in pledges for each of the fundraising events.
+SELECT eventName,eventTotalPledged
+FROM EVENT
 
 
 --DONE ENOUGH
