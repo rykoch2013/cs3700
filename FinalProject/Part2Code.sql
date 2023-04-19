@@ -39,7 +39,8 @@ amountPledgedThisYear number(10,2),
 amountPaidThisYear number(10,2),
 volunteerFirstName varchar2(30),
 volunteerLastName varchar2(30),
-CONSTRAINT Donor_donorID_pk PRIMARY KEY (donorID));
+CONSTRAINT Donor_donorID_pk PRIMARY KEY (donorID)
+FOREIGN KEY (volunteerFirstName,volunteerLastName) REFERENCES Volunteer(firstName,lastName));
 
 CREATE TABLE MatchingCorp(
 matchCorpName varchar2(30),
