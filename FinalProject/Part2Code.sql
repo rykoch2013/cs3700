@@ -242,24 +242,45 @@ INSERT INTO Donor_Child values(333,'Samantha Torno', '01-Jan-2010');
 -- Part 4: Query
 --
 
+--DONE
 --Based on Donor_Categories table only, calculate the number of donors for each donor category.
-
+SELECT donorCategory,COUNT(1)
+as numDonors
+FROM Donor_Categories
+GROUP BY donorCategory
+ORDER BY numDonors;
 
 --DONE
 --Based on Volunteer table only, find all volunteers in the state of New York, i.e. state is NY.
-select * from Volunteer where state = 'NY';
+SELECT * 
+FROM Volunteer 
+WHERE state = 'NY';
 
 --DONE
 --Find the names of all the potential donors who attended the Holiday Dinner Dance
 SELECT Attends.donorID,firstName,lastName
 FROM PotentialDonor,Attends
 WHERE eventName = 'Holiday Dinner Dance'
-AND Attends.donorID=PotentialDonor.donorID
+AND Attends.donorID=PotentialDonor.donorID;
 
 --Find the name of each company that matched a donation and the total amount per company
+--NOTHING WORKS
+SELECT *
+FROM MatchingCorp
+Where MatchingCorp.matchCorpName=Matches.matchCorpName;
 
+--DONE
 --Find the total amount in pledges due to the event of Holiday Dinner Dance
+
+SELECT SUM(pledgeAmount) - SUM(pledgeAmountPaid)
+AS amountDue
+FROM Pledge
+WHERE eventName = 'Holiday Dinner Dance';
 
 --Find the total amount in pledges for each of the fundraising events.
 
+
+--DONE ENOUGH
 --Find the ID and total amount pledged by each person.
+SELECT donorID,amountPledgedThisYear+amountDonatedLastYear
+FROM PotentialDonor
