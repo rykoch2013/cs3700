@@ -216,8 +216,6 @@ INSERT INTO Attends values(444,'Fall Carnival');
 INSERT INTO Attends values(444,'Spring Golf Outing');
 INSERT INTO Attends values(555,'Holiday Dinner Dance');
 
-
---Error: UNIQUE constraint failed: Matches.pledgeNumber, Matches.matchCorpName
 INSERT INTO Matches values(1234, 'IBM',0);
 INSERT INTO Matches values(1234, 'Prudential Insurance',1);
 
@@ -263,12 +261,6 @@ FROM PotentialDonor,Attends
 WHERE eventName = 'Holiday Dinner Dance'
 AND Attends.donorID=PotentialDonor.donorID;
 
---Find the name of each company that matched a donation and the total amount per company
---NOTHING WORKS
-SELECT *
-FROM MatchingCorp
-Where MatchingCorp.matchCorpName=Matches.matchCorpName;
-
 --DONE
 --Find the total amount in pledges due to the event of Holiday Dinner Dance
 SELECT SUM(pledgeAmount) - SUM(pledgeAmountPaid)
@@ -279,10 +271,15 @@ WHERE eventName = 'Holiday Dinner Dance';
 --DONE?
 --Find the total amount in pledges for each of the fundraising events.
 SELECT eventName,eventTotalPledged
-FROM EVENT
-
+FROM EVENT;
 
 --DONE ENOUGH
 --Find the ID and total amount pledged by each person.
 SELECT donorID,amountPledgedThisYear+amountDonatedLastYear
-FROM PotentialDonor
+FROM PotentialDonor;
+
+--Find the name of each company that matched a donation and the total amount per company
+--NOTHING WORKS
+SELECT *
+FROM MatchingCorp
+Where MatchingCorp.matchCorpName=Matches.matchCorpName;
