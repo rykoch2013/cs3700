@@ -9,7 +9,7 @@
 --DROP TABLE Orders;
 --DROP TABLE Shippings;
 
---Part 2: Table Creations
+--Part B: Table Creations
 
 CREATE TABLE Volunteer(
 firstName varchar2(30),
@@ -118,8 +118,6 @@ donorID number(8),
 eventName varchar2(30),
 CONSTRAINT Attends_pk PRIMARY KEY (donorID,eventName));
 
-
---Error: UNIQUE constraint failed: Matches.pledgeNumber, Matches.matchCorpName
 CREATE TABLE Matches(
 pledgeNumber number(8),
 matchCorpName varchar2(30),
@@ -148,7 +146,7 @@ CONSTRAINT donorChild_ID_childName_pk PRIMARY KEY (donorId,childName),
 FOREIGN KEY (donorID) REFERENCES PotentialDonor(donorID));
 
 --
--- Part 3: Table Insertion
+-- Part C: Table Insertion
 --
 
 INSERT INTO Volunteer values('Mary','Smith', '123 Main St', 'New
@@ -241,7 +239,7 @@ INSERT INTO Donor_Categories values(555, 'alum');
 INSERT INTO Donor_Child values(333,'Samantha Torno', '01-Jan-2010');
 
 --
--- Part 4: Query
+-- Part D: Query
 --
 
 --Based on Donor_Categories table only, calculate the number of donors for each donor category.
