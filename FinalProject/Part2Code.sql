@@ -5,9 +5,9 @@
 -- Database Final Project: Part 2
 
 -- When using Programiz.com
-DROP TABLE Customers;
-DROP TABLE Orders;
-DROP TABLE Shippings;
+--DROP TABLE Customers;
+--DROP TABLE Orders;
+--DROP TABLE Shippings;
 
 --Part 2: Table Creations
 
